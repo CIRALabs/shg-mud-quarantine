@@ -1,7 +1,7 @@
 ---
 title: Manufacturer Usuage Description for quarantined access to firmware
 abbrev: MUD-Quaranatine
-docname: draft-richardson-shg-mud-quarantined-access-00
+docname: draft-richardson-shg-mud-quarantined-access-01
 
 # stand_alone: true
 
@@ -31,10 +31,6 @@ author:
 normative:
   RFC2119:
   I-D.ietf-opsawg-mud:
-
-informative:
-  RFC8180:
-  I-D.ietf-6tisch-dtsecurity-secure-join:
 
 --- abstract
 
