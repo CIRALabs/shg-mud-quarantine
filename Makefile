@@ -1,6 +1,6 @@
 DRAFT:=shg-mud-quarantine
 VERSION:=$(shell ./getver ${DRAFT}.mkd )
-YANGDATE=2017-12-11
+YANGDATE=2019-07-08
 YANGFILE=cira-shg-mud
 CWTDATE1=yang/${YANGFILE}@${YANGDATE}.yang
 PYANG=pyang
@@ -35,18 +35,18 @@ version:
 clean:
 	-rm -f ${DRAFT}.xml ${CWTDATE1}
 
-yang/ietf-mud@2018-06-15.yang:
+yang/ietf-mud@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-mud@2018-06-15.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-mud@2019-01-28.yang )
 
-yang/ietf-acldns@2018-06-15.yang:
+yang/ietf-acldns@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-acldns@2018-06-15.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-acldns@2019-01-28.yang )
 
-yang/ietf-access-control-list@2018-11-06.yang:
+yang/ietf-access-control-list@2019-03-04.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-access-control-list@2018-11-06.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-access-control-list@2019-03-04.yang )
 
-${CWTDATE1}:: yang/ietf-mud@2018-06-15.yang yang/ietf-acldns@2018-06-15.yang yang/ietf-access-control-list@2018-11-06.yang
+${CWTDATE1}:: yang/ietf-mud@2019-01-28.yang yang/ietf-acldns@2019-01-28.yang yang/ietf-access-control-list@2019-03-04.yang
 
 .PRECIOUS: ${DRAFT}.xml
