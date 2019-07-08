@@ -20,10 +20,10 @@ module cira-shg-mud {
               <mailto:mcr+ietf@sandelman.ca>";
 
   description
-   "This module extends the RFCXXXX MUD format to include two
-   facilities: definition of an Access Control List appropriate
-   to enable device upgrade only, and provide for a history of
-   modifications by third-parties to the MUD file";
+   "This module extends the RFCXXXX MUD format to include a
+   way to mark Access Control List entries that are needed for
+   firmware update.  Such entries could be left enabled
+   even when a device has been placed into quarantine.";
 
   revision "YYYY-MM-DD" {
     description
@@ -34,13 +34,13 @@ module cira-shg-mud {
 
   augment "/m:mud" {
     description
-      "Adds leaf nodes appropriate MUD usage in the
-       Secure Home Gateway";
+      "Adds leaf nodes appropriate for marking ACLs to be
+       enabled during device quarantine";
 
     container quaranteed-device-policy {
       description
         "The policies that should be enforced on traffic
-         coming from the device when it is under quaranteen.
+         coming from the device when it is under quarantine.
          These policies are usually a subset of operational policies
          and are intended to permit firmware updates only.
          They are intended to keep the device safe (and the network safe
