@@ -2,6 +2,5 @@
 module: cira-shg-mud
   augment /m:mud:
     +--rw quaranteed-device-policy
-       +--rw access-lists
-          +--rw access-list* [name]
-             +--rw name    -> /acl:acls/acl/name
+       +--rw enabled-ace-names* [ace-name]
+          +--rw ace-name    -> /acl:acls/acl/aces/ace/name
