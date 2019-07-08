@@ -30,13 +30,13 @@ author:
       -
         ins: M. Ranganathan
         name: M. Ranganathan
-        org: CableLabs
+        org: NIST
         email: mranga@gmail.com
 
 
 normative:
   RFC2119:
-  I-D.ietf-opsawg-mud:
+  RFC8520:
 
 --- abstract
 
@@ -75,15 +75,17 @@ INSERT_TEXT_FROM_FILE cira-shg-mud-tree.txt END
 INSERT_TEXT_FROM_FILE cira-shg-mud@DATE.yang END
 </figure>
 
-# Protocol Definition
-
-## Protocol Example
-
 # Security Considerations
+
+TBD
 
 # Privacy Considerations
 
+TBD
+
 # IANA Considerations
+
+TBD
 
 There are no IANA actions created by this document.
 
