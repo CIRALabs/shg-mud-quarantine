@@ -37,15 +37,15 @@ clean:
 
 yang/ietf-mud@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-mud@2019-01-28.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-mud@2019-01-28.yang )
 
 yang/ietf-acldns@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-acldns@2019-01-28.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-acldns@2019-01-28.yang )
 
 yang/ietf-access-control-list@2019-03-04.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-access-control-list@2019-03-04.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-access-control-list@2019-03-04.yang )
 
 ${CWTDATE1}:: yang/ietf-mud@2019-01-28.yang yang/ietf-acldns@2019-01-28.yang yang/ietf-access-control-list@2019-03-04.yang
 
