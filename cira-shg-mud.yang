@@ -9,7 +9,12 @@ module cira-shg-mud {
     prefix m;
     description "This module defines the format for a MUD description";
     reference "RFC YYYY: MUD YANG";
+  } 
+
+  import ietf-access-control-list {
+    prefix acl;
   }
+
 
   organization "CIRALabs Secure Home Gateway project.";
 
@@ -47,9 +52,15 @@ module cira-shg-mud {
          from the device) when the device is suspected of being
          out-of-date, but still considered sufficiently intact to be
          able to do a firmware update";
-      uses m:access-lists;
+         list enabled-ace-names {
+           key ace-name;
+           leaf ace-name {
+             type leafref {
+                 path "/acl:acls/acl:acl/acl:aces/acl:ace/acl:name";
+             }
+ 	 }
+	}
     }
   }
-
 }
 
