@@ -1,7 +1,7 @@
 ---
 title: Manufacturer Usuage Description for quarantined access to firmware
 abbrev: MUD-Quaranatine
-docname: draft-richardson-shg-mud-quarantined-access-01
+docname: draft-richardson-shg-mud-quarantined-access-03
 
 # stand_alone: true
 
@@ -50,7 +50,7 @@ need.
 
 The document details an extension to the Manufacturer Usage Description (MUD)
 mechanism to be able to mark one or more ACLs as being enabled even though
-the device has quaranteed.
+the device has been quaranteed.
 
 # Requirements Language {#rfc2119}
 
@@ -64,16 +64,11 @@ implementations.
 
 ## Tree Diagram
 
-<figure>
-INSERT_TEXT_FROM_FILE cira-shg-mud-tree.txt END
-</figure>
-
+{::include ietf-mud-quarantine-tree.txt}
 
 ## YANG FILE
 
-<figure>
-INSERT_TEXT_FROM_FILE cira-shg-mud@DATE.yang END
-</figure>
+{::include yang/ietf-mud-quarantine@2019-12-27.yang}
 
 # Security Considerations
 
@@ -85,9 +80,16 @@ TBD
 
 # IANA Considerations
 
-TBD
+The following YANG modules need to be registered in the "YANG Module Names" registry:
 
-There are no IANA actions created by this document.
+~~~~
+      Name: ietf-mud
+      URN: urn:ietf:params:xml:ns:yang:ietf-mud
+      Prefix: ietf-mud
+      Registrant contact: The IESG
+      Reference: [THIS DOCUMENT]
+~~~~
+
 
 # Acknowledgements
 

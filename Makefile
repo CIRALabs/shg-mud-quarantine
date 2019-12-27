@@ -1,7 +1,7 @@
 DRAFT:=shg-mud-quarantine
 VERSION:=$(shell ./getver ${DRAFT}.mkd )
-YANGDATE=2019-07-08
-YANGFILE=cira-shg-mud
+YANGDATE=2019-12-27
+YANGFILE=ietf-mud-quarantine
 CWTDATE1=yang/${YANGFILE}@${YANGDATE}.yang
 PYANG=pyang
 
@@ -17,7 +17,7 @@ ${YANG}-tree.txt: ${CWTDATE1}
 	-${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
 
 %.xml: %.mkd ${CWTDATE1} #${YANG}-tree.txt
-	kramdown-rfc2629 ${DRAFT}.mkd | ./insert-figures >${DRAFT}.xml
+	kramdown-rfc2629 ${DRAFT}.mkd > ${DRAFT}.xml
 	: git add ${DRAFT}.xml
 
 %.txt: %.xml
