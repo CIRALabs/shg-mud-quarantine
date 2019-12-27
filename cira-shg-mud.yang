@@ -1,23 +1,26 @@
-module cira-shg-mud {
+module ietf-mud-quarantine {
   yang-version 1.1;
 
   namespace
-    "urn:ietf:params:xml:ns:yang:ietf-shg-mud";
-  prefix "shg";
+    "urn:ietf:params:xml:ns:yang:ietf-mud-quarantine";
+  prefix "q";
 
   import ietf-mud {
     prefix m;
-    description "This module defines the format for a MUD description";
+    description "This module defines an extension to MUD to mark entries as being needed during quarantine";
     reference "RFC YYYY: MUD YANG";
   }
 
-  organization "CIRALabs Secure Home Gateway project.";
+  organization "IETF OPSAWG Working group.";
 
   contact
-   "WG Web:   <http://securehomegateway.ca/>
-    WG List:  <mailto:securehomegateway@cira.ca>
+    "WG Web: <https://datatracker.ietf.org/wg/opsawg/>
+     WG List: opsawg@ietf.org
     Author:   Michael Richardson
-              <mailto:mcr+ietf@sandelman.ca>";
+              <mailto:mcr+ietf@sandelman.ca>
+
+    Author:   M. Ranganathan
+              <mailto:mranga@gmail.com>";
 
   description
    "This module extends the RFC8520 MUD format to two
@@ -29,18 +32,17 @@ module cira-shg-mud {
     description
      "Initial version";
     reference
-     "RFC XXXX: MUD profile for Secure Home Gateway Project";
+     "RFC XXXX: MUD profile with quarantined access";
   }
 
   augment "/m:mud" {
     description
-       "Adds leaf nodes appropriate MUD usage in the
-        Secure Home Gateway";
+       "Adds leaf nodes for marking ACLs that should be enabled during quarantine";
 
     container quaranteed-device-policy {
       description
         "The policies that should be enforced on traffic
-         coming from the device when it is under quaranteen.
+         coming from the device when it is under quarantine.
          These policies are usually a subset of operational policies
          and are intended to permit firmware updates only.
          They are intended to keep the device safe (and the network safe
