@@ -14,9 +14,9 @@ ${CWTDATE1}:: ${YANGFILE}.yang
 	sed -e"s/YYYY-MM-DD/${YANGDATE}/" ${YANGFILE}.yang > ${CWTDATE1}
 
 ${YANG}-tree.txt: ${CWTDATE1}
-	${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
+	-${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
 
-%.xml: %.mkd ${CWTDATE1} ${YANG}-tree.txt
+%.xml: %.mkd ${CWTDATE1} #${YANG}-tree.txt
 	kramdown-rfc2629 ${DRAFT}.mkd | ./insert-figures >${DRAFT}.xml
 	: git add ${DRAFT}.xml
 
