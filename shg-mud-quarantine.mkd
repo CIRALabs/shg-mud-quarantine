@@ -68,7 +68,9 @@ implementations.
 
 ## YANG FILE
 
-{::include yang/ietf-mud-quarantine@2019-12-27.yang}
+<figure>
+INSERT_TEXT_FROM_FILE ietf-mud-quarantine@DATE.yang END
+</figure>
 
 # Security Considerations
 

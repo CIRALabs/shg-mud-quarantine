@@ -17,7 +17,7 @@ ${YANG}-tree.txt: ${CWTDATE1}
 	-${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
 
 %.xml: %.mkd ${CWTDATE1} #${YANG}-tree.txt
-	kramdown-rfc2629 ${DRAFT}.mkd > ${DRAFT}.xml
+	kramdown-rfc2629 ${DRAFT}.mkd | ./insert-figures >${DRAFT}.xml
 	: git add ${DRAFT}.xml
 
 %.txt: %.xml
