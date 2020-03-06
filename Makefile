@@ -1,7 +1,7 @@
 DRAFT:=shg-mud-quarantine
 VERSION:=$(shell ./getver ${DRAFT}.mkd )
-YANGDATE=2017-12-11
-YANGFILE=cira-shg-mud
+YANGDATE=2019-12-27
+YANGFILE=ietf-mud-quarantine
 CWTDATE1=yang/${YANGFILE}@${YANGDATE}.yang
 PYANG=pyang
 
@@ -14,9 +14,9 @@ ${CWTDATE1}:: ${YANGFILE}.yang
 	sed -e"s/YYYY-MM-DD/${YANGDATE}/" ${YANGFILE}.yang > ${CWTDATE1}
 
 ${YANG}-tree.txt: ${CWTDATE1}
-	${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
+	-${PYANG} -f tree --path=yang --tree-print-groupings --tree-line-length=70 ${CWTDATE1} > ${YANGFILE}-tree.txt
 
-%.xml: %.mkd ${CWTDATE1} ${YANG}-tree.txt
+%.xml: %.mkd ${CWTDATE1} #${YANG}-tree.txt
 	kramdown-rfc2629 ${DRAFT}.mkd | ./insert-figures >${DRAFT}.xml
 	: git add ${DRAFT}.xml
 
@@ -35,18 +35,18 @@ version:
 clean:
 	-rm -f ${DRAFT}.xml ${CWTDATE1}
 
-yang/ietf-mud@2018-06-15.yang:
+yang/ietf-mud@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-mud@2018-06-15.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-mud@2019-01-28.yang )
 
-yang/ietf-acldns@2018-06-15.yang:
+yang/ietf-acldns@2019-01-28.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-acldns@2018-06-15.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-acldns@2019-01-28.yang )
 
-yang/ietf-access-control-list@2018-11-06.yang:
+yang/ietf-access-control-list@2019-03-04.yang:
 	mkdir -p yang
-	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/experimental/ietf-extracted-YANG-modules/ietf-access-control-list@2018-11-06.yang )
+	(cd yang && wget https://raw.githubusercontent.com/YangModels/yang/master/standard/ietf/RFC/ietf-access-control-list@2019-03-04.yang )
 
-${CWTDATE1}:: yang/ietf-mud@2018-06-15.yang yang/ietf-acldns@2018-06-15.yang yang/ietf-access-control-list@2018-11-06.yang
+${CWTDATE1}:: yang/ietf-mud@2019-01-28.yang yang/ietf-acldns@2019-01-28.yang yang/ietf-access-control-list@2019-03-04.yang
 
 .PRECIOUS: ${DRAFT}.xml

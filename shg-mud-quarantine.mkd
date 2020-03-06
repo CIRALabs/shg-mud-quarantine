@@ -1,17 +1,16 @@
 ---
 title: Manufacturer Usuage Description for quarantined access to firmware
-abbrev: MUD-Quaranatine
-docname: draft-richardson-shg-mud-quarantined-access-00
+abbrev: MUD-Quarantine
+docname: draft-richardson-shg-mud-quarantined-access-03
 
 # stand_alone: true
 
 ipr: trust200902
 area: Internet
-wg: 6lo Working Group
+wg: opsawg Working Group (if adopted)
 kw: Internet-Draft
 cat: std
 
-coding: us-ascii
 pi:    # can use array (if all yes) or hash here
 #  - toc
 #  - sortrefs
@@ -29,17 +28,14 @@ author:
 
       -
         ins: M. Ranganathan
-        name: Mudumbai Ranganathan
+        name: M. Ranganathan
         org: NIST
-        email: mranga@nist.gov
+        email: mranga@gmail.com
+
 
 normative:
   RFC2119:
-  I-D.ietf-opsawg-mud:
-
-informative:
-  RFC8180:
-  I-D.ietf-6tisch-dtsecurity-secure-join:
+  RFC8520:
 
 --- abstract
 
@@ -53,7 +49,7 @@ need.
 
 The document details an extension to the Manufacturer Usage Description (MUD)
 mechanism to be able to mark one or more ACLs as being enabled even though
-the device has quaranteed.
+the device has been quaranteed.
 
 # Requirements Language {#rfc2119}
 
@@ -67,28 +63,34 @@ implementations.
 
 ## Tree Diagram
 
-<figure>
-INSERT_TEXT_FROM_FILE cira-shg-mud-tree.txt END
-</figure>
-
+{::include ietf-mud-quarantine-tree.txt}
 
 ## YANG FILE
 
 <figure>
-INSERT_TEXT_FROM_FILE cira-shg-mud@DATE.yang END
+INSERT_TEXT_FROM_FILE ietf-mud-quarantine@DATE.yang END
 </figure>
-
-# Protocol Definition
-
-## Protocol Example
 
 # Security Considerations
 
+TBD
+
 # Privacy Considerations
+
+TBD
 
 # IANA Considerations
 
-There are no IANA actions created by this document.
+The following YANG modules need to be registered in the "YANG Module Names" registry:
+
+~~~~
+      Name: ietf-mud
+      URN: urn:ietf:params:xml:ns:yang:ietf-mud
+      Prefix: ietf-mud
+      Registrant contact: The IESG
+      Reference: [THIS DOCUMENT]
+~~~~
+
 
 # Acknowledgements
 
