@@ -1,7 +1,7 @@
 ---
 title: Manufacturer Usage Description for quarantined access to firmware
 abbrev: MUD-Quarantine
-docname: draft-richardson-shg-mud-quarantined-access-03
+docname: draft-richardson-shg-mud-quarantined-access-02
 
 # stand_alone: true
 
